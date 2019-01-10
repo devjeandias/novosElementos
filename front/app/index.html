@@ -15,6 +15,7 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
@@ -28,7 +29,23 @@
       <div class="container"></div>
     </div>
 
-    <div id="bannerTv">
+    <div id="bannerTv" class="carousel slide bannerTv" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/images/banner.jpg" alt="...">
+          <div class="carousel-caption text-left">
+            <div class="container">
+              <small class="bannerTv--label --categoria">Cirúrgica</small>
+              <h2 class="bannerTv--label --titulo">Retirada de sinais</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div id="footer"></div>
