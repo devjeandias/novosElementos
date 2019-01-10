@@ -1,0 +1,13 @@
+{
+  "name": "Paula Tansini",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~4.0.0-alpha.6",
+    "jQuery": "~1.9.1",
+    "modernizr": "~2.8.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
