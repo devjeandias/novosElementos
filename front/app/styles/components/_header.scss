@@ -1,5 +1,125 @@
+$colorTxtHeader: $blackTwo; 
+$colorBorderNavItem: $gray;  
+$facebook: #415998;
+$instagran: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+
 #header {
   position: absolute;
+  padding-top: 55px;
+  width: 100%;
+  z-index: 10;
   left: 0;
   top: 0;
+
+  // logo marca
+  .logo-brand {
+    background: url('/images/logo.svg');
+    text-indent: -99999em;
+    display: block;
+    width: 322px;
+    height: 85px;
+  }
+
+  // menu
+  .nav {
+    &bar {
+      justify-content: space-between;
+      align-items: center;
+      padding: {
+        right: 60px;
+        left: 0;
+        left: 0;
+        top: 0;
+      };
+      
+      &-brand {
+        margin-bottom: 0;
+        padding: 0;
+      }
+      
+      &-nav {
+        align-items: center;
+      }
+    }
+
+    &-item {
+      font-size: 14px;
+      text-transform: uppercase;
+
+      + .nav-item:not(.--media) {
+        .nav-link {
+          display: block;
+          border-left: solid 1px $colorBorderNavItem;
+        }
+      }
+
+      &.--media {
+        position: relative;
+        margin-left: 23px;
+
+        &:before {
+          transition: opacity .5s;
+          background: transparent;
+          position: absolute;
+          height: 52px;
+          width: 52px;
+          content: '';
+          opacity: 0;
+          left: 0;
+          top: 0;
+        }
+
+        .--icon {
+          transition: filter .3s;
+          filter: invert(0);
+        }
+
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+
+          .--icon {
+            filter: invert(1);
+          }
+        }
+
+        &._facebook {
+          .--icon {
+            background: url('/images/facebook.svg') no-repeat;
+          }
+
+          &:hover {
+            &:before {
+              background: $facebook;
+            }
+          }
+        }
+    
+        &._instagran {
+          .--icon {
+            background: url('/images/instagran.svg') no-repeat;
+          }
+
+          &:hover {
+            &:before {
+              background: $instagran;
+            }
+          }
+        }
+      }
+    }
+
+    &-link {
+      line-height: 19px;
+      padding: 23px 20px;
+
+      &.--icon {
+        width: 53px;
+        height: 53px;
+        position: relative;
+        text-indent: -99999em;
+      }
+    }
+  }
 }
