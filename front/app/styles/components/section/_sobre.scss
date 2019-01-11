@@ -1,0 +1,50 @@
+#sobre {
+    padding: {
+        bottom: 80px;
+        top: 80px;
+    };
+    background: url('/images/bg-tcopy.png') $white 97% 110% no-repeat;
+
+    .wrap  {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .image {
+        position: relative;
+
+        &::before {
+            border: solid 1px $blackTwo;
+            position: absolute;
+            height: 100%;
+            content: "";
+            width: 100%;
+            left: -26px;
+            top: -24px;
+        }
+
+        img {
+            position: relative;
+            z-index: 10;
+        }
+    }
+
+    .text {
+        padding-left: 60px;
+        .titulo {
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            font-size: 30px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 24px;
+            font-weight: 300;
+            font-size: 16px;
+            color: $blueTwo;
+        }
+    }
+}
