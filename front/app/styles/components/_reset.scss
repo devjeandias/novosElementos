@@ -1,10 +1,25 @@
 // typografia
+$corDeTexto: $blackTwo;
+
 body {
   font-size: 16px;
+  color: $corDeTexto;
   font-family: "Open Sans";
 }
 
 // images
 img {
   max-width: 100%;
+}
+
+// link
+.navbar-nav {
+  a {
+    color: $blackTwo;
+  
+    &:hover {
+      color: rgb(2,43,63);
+      text-decoration: underline;
+    }
+  }
 }
