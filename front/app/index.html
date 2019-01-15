@@ -21,7 +21,16 @@
 
   </head>
   <body>
-    <!--[if IE]>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.2&appId=165326120218444';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+<!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
@@ -101,7 +110,56 @@
     </section>
 
     <section id="tratamentos">
+      <div class="container">
+        <ul class="row lista-tratamentos">
+            <li class="lista-tratamentos--item col-4">
+              <div class="card--header">
+                <img src="/images/img-1.jpg" alt="">
+                <h2 class="cart-label">lorem2</h2>
+              </div>
 
+              <div class="card--body">
+                <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+                <p class="card--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, nihil?</p>
+              </div>
+            </li>
+
+            <li class="lista-tratamentos--item col-4">
+              <div class="card--header">
+                <img src="/images/img-2.jpg" alt="">
+                <h2 class="cart-label">lorem2</h2>
+              </div>
+
+              <div class="card--body">
+                <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+                <p class="card--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, nihil?</p>
+
+                <ul class="card-list">
+                    <li class="card-list--item">item 1</li>
+                    <li class="card-list--item">item 2</li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="lista-tratamentos--item col-4">
+              <div class="card--header">
+                <img src="/images/img-3.jpg" alt="">
+                <h2 class="cart-label">lorem2</h2>
+              </div>
+
+              <div class="card--body">
+                <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
+                <p class="card--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, nihil?</p>
+
+                <ul class="card-list">
+                    <li class="card-list--item">item 1</li>
+                    <li class="card-list--item">item 2</li>
+                    <li class="card-list--item">item 3</li>
+                </ul>
+              </div>
+            </li>
+        </ul>
+      </div>
     </section>
 
     <div id="footer"></div>
