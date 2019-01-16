@@ -1,0 +1,6 @@
+front/node_modules
+front/dist
+front/.tmp
+front/bower_components
+front/test/bower_components
+wp/wp-config.php
