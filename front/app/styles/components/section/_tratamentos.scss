@@ -1,6 +1,76 @@
 #tratamentos {
     background: url('/images/bg-tratamentos.png') center center no-repeat;
-    min-height: 615px;
-    padding: 33px 0;
+    padding: 33px 0 28px;
+    height: 615px;
     color: $white;
+
+    .lista-tratamentos {
+        justify-content: space-between;
+        display: flex;
+
+        &--item {
+            width: percentage(355px/1110px);
+        }
+
+        .card {
+            &--header {
+                position: relative;
+                margin-bottom: 15px;
+            }
+
+            &-label {
+                text-transform: uppercase;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                font-weight: 300;
+                font-size: 29px;
+                display: flex;
+                color: $blue;
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+            }
+
+            &--body {
+                padding-right: 15px;
+                max-height: 365px;
+            }
+
+            &-title {
+                font-size: 25px;
+                font-weight: 300;
+                line-height: 35px;
+                margin-bottom: 15px;
+            }
+
+        }
+
+        p {
+            margin-bottom: 30px;
+            line-height: 24px;
+            font-weight: 300;
+            font-size: 16px;
+        }
+    }
+
+    .list-group {
+        border-bottom-style: solid;
+
+        &,
+        &-item {
+           border-color: rgba(250, 250, 250, 0.3);
+           background-color: transparent;
+           border-width: 1px;
+        }
+
+        &-item {
+            border-bottom-style: none;
+            line-height: 40px;
+            font-weight: 300;
+            padding: 10px 0;
+            font-size: 20px;
+        }
+    }
 }

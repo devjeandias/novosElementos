@@ -1,0 +1,81 @@
+/*************** SCROLLBAR BASE CSS ***************/
+ 
+.scroll-wrapper {
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: relative;
+}
+ 
+.scroll-wrapper > .scroll-content {
+    border: none !important;
+    box-sizing: content-box !important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none;
+    max-width: none !important;
+    overflow: scroll !important;
+    padding: 0;
+    position: relative !important;
+    top: 0;
+    width: auto !important;
+}
+ 
+.scroll-wrapper > .scroll-content::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}
+ 
+.scroll-element {
+    display: none;
+}
+.scroll-element, .scroll-element div {
+    box-sizing: content-box;
+}
+ 
+.scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-element.scroll-y.scroll-scrolly_visible {
+    display: block;
+}
+ 
+.scroll-element .scroll-bar,
+.scroll-element .scroll-arrow {
+    cursor: default;
+}
+
+ 
+/*************** SIMPLE INNER SCROLLBAR ***************/
+ 
+.scrollBar > .scroll-element,
+.scrollBar > .scroll-element div
+{
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+}
+ 
+.scrollBar > .scroll-element div {
+    display: block;
+    height: 100%;
+    width: 4px;
+    left: 0px;
+    top: 0;
+}
+ 
+.scrollBar > .scroll-element.scroll-y {
+    height: 100%;
+    width: 1px;
+    right: 2px;
+    top: 0;
+}
+ 
+.scrollBar > .scroll-element .scroll-element_outer {
+    overflow: hidden;
+}
+ 
+.scrollBar > .scroll-element .scroll-element_track { left: 1px; width: 1px; background-color: rgba(250, 250, 250, 0.3) }
+.scrollBar > .scroll-element.scroll-draggable .scroll-bar { background-color: $white; }
+.scrollBar > .scroll-element .scroll-bar { width: 4px; background-color: $white; }
+.scrollBar > .scroll-element:hover .scroll-bar { background-color: $white; }
