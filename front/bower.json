@@ -3,7 +3,6 @@
   "private": true,
   "dependencies": {
     "bootstrap": "~4.0.0-alpha.6",
-    "jQuery": "~1.9.1",
     "jquery.scrollbar": "~0.2.11",
     "modernizr": "~2.8.1"
   },
