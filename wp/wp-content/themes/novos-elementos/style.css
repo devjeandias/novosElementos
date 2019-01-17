@@ -6,3 +6,19 @@ Author URI: http://devjeandias.github.io
 Description: Teste de desenvolvimento Novos Elementos.
 Version: 1.0
 */
+
+html {
+    scroll-behavior: smooth
+}
+
+a.post-edit-link {
+    color: #117ee2;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: -40px;
+    position: relative;
+    line-height: 20px;
+    font-weight: 400;
+    z-index: 1000;
+    padding: 10px 20px;
+}

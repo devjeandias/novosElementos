@@ -1,131 +1,174 @@
 <?php get_header(); ?>
-<div id="bannerTv" class="carousel slide bannerTv" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      </ol>
+    <?php
+        $args = array( 'post_type'=>'banner_tv' );
+        $the_query = new WP_Query( $args );
+        $qttPosts = 0;
+    ?>
 
+    <div id="bannerTv" class="carousel slide bannerTv" data-ride="carousel">      
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="<?php bloginfo('template_url'); ?>/images/banner.jpg" alt="...">
-          <div class="carousel-caption text-left">
-            <div class="container">
-              <small class="bannerTv--label --categoria">Cirúrgica</small>
-              <h2 class="bannerTv--label --titulo">Retirada de sinais</h2>
+        <?php if ( $the_query->have_posts() ) { while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <?php
+            //section config
+            $bannerLabel = get_field('banner-label');
+            $bannerTexto = get_field('banner-texto');
+            ?>
+
+          <div class="<?php echo $qttPosts == 0 ? 'carousel-item active': 'carousel-item'; ?>">
+            <img src="<?php echo the_field('banner-imagem') ?>" alt="">
+            <div class="carousel-caption text-left">
+              <div class="container">
+                <small class="bannerTv--label --categoria"><?php echo $bannerLabel ?></small>
+                <h2 class="bannerTv--label --titulo"><?php echo $bannerLabel ?></h2>
+                <?php edit_post_link(); ?>
+              </div>
             </div>
           </div>
-        </div>
+          <?php $qttPosts++; endwhile; wp_reset_postdata(); } ?>
+          
+          <?php if($qttPosts>1) { ?>
+            <ol class="carousel-indicators">
+              <?php for($i=0; $i<$qttPosts; $i++) { ?>
+                <li data-target="#bannerTv" data-slide-to="<?php echo $i ?>" class="<?php $i == 0 ? 'active' : ''; ?>"></li>
+              <?php } ?>
+            </ol>
+          <?php } ?>
       </div>
     </div>
 
+    <?php
+        $args = array( 'page_id'=>26 );
+        $the_query = new WP_Query( $args );
+    ?>
+
+    <?php if ( $the_query->have_posts() ) { while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
     <section id="sobre">
+      <?php edit_post_link(); ?>
       <div class="container">
         <div class="wrap">
-          <figure class="image">
-            <img src="<?php bloginfo('template_url'); ?>/images/paula-tansini.jpg" alt="">
-          </figure>
+          <?php if ( has_post_thumbnail() ) : ?>
+            <figure class="image">
+              <?php the_post_thumbnail(); ?>
+            </figure>
+          <?php endif; ?>
 
           <div class="text">
-            <h2 class="titulo">DRA. PAULA TANSINI</h2>
+            <h2 class="titulo">
+              <?php the_title(); ?>
+            </h2>
 
-            <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
-            <p>Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non<br> neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
-            
-            <p>Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis<br> neque. Suspendisse in orci enim.</p>
+            <?php the_content() ?>
           </div>
         </div>
 
       </div>
     </section>
+    <?php endwhile; wp_reset_postdata(); } ?>
 
+    <?php
+        $args = array( 'post_type'=>'tratamentos' );
+        $the_query = new WP_Query( $args );
+    ?>
     <section id="tratamentos">
       <div class="container">
         <ul class="lista-tratamentos">
-            <li class="lista-tratamentos--item">
-              <div class="card--header">
-                <img src="<?php bloginfo('template_url'); ?>/images/img-1.jpg" alt="">
-                <h2 class="card-label">Clínica</h2>
-              </div>
+          <?php if ( $the_query->have_posts() ) { while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <?php
+              //section config
+              $tratamentoSubTitle = get_field('tratamento-subtitulo');
+              $tratamentoTexto = get_field('tratamento-texto');
+              $tratamentoTipos = get_field_object('tratamentos-tipos', get_the_ID());
+          ?>
 
-              <div class="card--body scrollBar">
-                <h5 class="card-title">Check-up dermatológico</h5>
-                <p class="card--text">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                <p class="card--text">Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
-              </div>
-            </li>
+          <li class="lista-tratamentos--item">
+            
+            <?php edit_post_link(); ?>
+            <div class="card--header">
+              <img src="<?php echo the_field('tratamento_image') ?>" alt="">
+              <h2 class="card-label"><?php the_title() ?></h2>
+            </div>
 
-            <li class="lista-tratamentos--item">
-              <div class="card--header">
-                <img src="<?php bloginfo('template_url'); ?>/images/img-2.jpg" alt="">
-                <h2 class="card-label">Cirúrgica</h2>
-              </div>
+            <div class="card--body scrollBar">
+              <h5 class="card-title"><?php echo $tratamentoSubTitle ?></h5>
+              <?php echo $tratamentoTexto ?>
 
-              <div class="card--body scrollBar">
-                <h5 class="card-title">Retirada de sinais</h5>
-                <p class="card--text">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                <p class="card--text">Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
-
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Peeling cirúrgico</li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="lista-tratamentos--item">
-              <div class="card--header">
-                <img src="<?php bloginfo('template_url'); ?>/images/img-3.jpg" alt="">
-                <h2 class="card-label">Cosmiatria</h2>
-              </div>
-
-              <div class="card--body scrollBar">
-                <h5 class="card-title">MD Codes</h5>
-                <p class="card--text">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-                <p class="card--text">Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
-
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Preenchimento</li>
-                    <li class="list-group-item">Toxina botulínica</li>
-                    <li class="list-group-item">item 3</li>
-                </ul>
-              </div>
-            </li>
+              <?php
+                $field = $tratamentoTipos;
+                if( $field['value'] ): ?>
+                  <ul class="list-group list-group-flush">
+                      <?php
+                        foreach( $field['value'] as $value => $label ): $term = get_term($label, $field['taxonomy']);
+                          echo '<li class="list-group-item">' . $term->name . '</li>';
+                        endforeach;
+                      ?>
+                  </ul>
+              <?php endif; ?>
+            </div>
+          </li>
+          <?php endwhile; wp_reset_postdata(); } ?>
         </ul>
       </div>
     </section>
 
-    <section id="contato">
-      <div class="medias-sociais container">
-        <div class="row">
-          <div class="box --facebook col-6">
-            <div class="wrap">
-              <div class="fb-page" data-href="https://www.facebook.com/drapaulatansini/" data-tabs="timeline" data-width="451" data-height="451" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/drapaulatansini/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/drapaulatansini/">Paula Tansini</a></blockquote></div>
+<?php
+        $args = array( 'page_id'=>35 );
+        $the_query = new WP_Query( $args );
+    ?>
+    <?php if ( $the_query->have_posts() ) { while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+        <?php
+          //section config
+          $htmlFacebook = get_field('contato-facebook');
+          $htmlInstagram = get_field('contato-instagram');
+          $contatoEndereco = get_field('contato-endereco');
+          $contatoTelefone = get_field('contato-telefone');
+          $contatoWhatsapp = get_field('contato-whatsapp');
+        ?>
+
+        <section id="contato">
+          <?php edit_post_link(); ?>
+          <div class="medias-sociais container">
+            <div class="row">
+              <?php if( $htmlFacebook ) { ?>
+                <div class="box --facebook col-6">
+                  <div class="wrap">
+                    <?php echo $htmlFacebook ?>
+                  </div>
+                </div>
+              <?php } ?>
+
+              <?php if( $htmlInstagram ) { ?>
+                <div class="box --instagram col-6">
+                  <div class="wrap">
+                    <?php echo $htmlInstagram ?>
+                  </div>
+                </div>
+              <?php } ?>
             </div>
           </div>
 
-          <div class="box --instagram col-6">
-            <div class="wrap">
-              <a class="link-instagram" href="//www.instagram.com/js_blackking/">&nbsp;</a>
-              <script src="//cdn.lightwidget.com/widgets/lightwidget.js"></script>
-              <iframe src="//lightwidget.com/widgets/5424d13d720a54de8f9d3d6579f72f17.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden"></iframe>
+          <div class="info-contato">
+            <div class="wrapper">
+              <div>
+                <?php if($contatoEndereco) { ?>
+                  <address>
+                    <?php echo $contatoEndereco ?>
+                  </address>
+                <?php } ?>
+                
+                <?php if($contatoTelefone || $contatoWhatsapp) { ?>
+                  <ul class="lista-telefones">
+                    <?php if($contatoTelefone) { ?>
+                      <li class="tel"><?php echo $contatoTelefone ?></li>
+                    <?php } ?>
+
+                    <?php if($contatoWhatsapp) { ?>
+                      <li class="whats"><a href="//api.whatsapp.com/send?phone=5521981566410"><?php echo $contatoWhatsapp ?></a></li>
+                    <?php } ?>
+                  </ul>
+                <?php } ?>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="info-contato">
-        <div class="wrapper">
-          <div>
-            <address>
-              Avenida das Américas, 2111<br> BL. 1, sls. 102, 103 3 104, BARRA DA TIJUCA
-            </address>
-  
-            <ul class="lista-telefones">
-              <li class="tel">(21) 2493-8418</li> 
-              <li class="whats"><a href="//api.whatsapp.com/send?phone=5521981566410">(21) 98156-6410</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
+        </section>
+    <?php endwhile; wp_reset_postdata(); } ?>
 <?php get_footer(); ?>
