@@ -45,7 +45,7 @@ $bannerTxtColor: $blackTwo;
     @include media-breakpoint-down(md) {
       &.--titulo,
       &.--categoria {
-        line-height: 40px;
+        line-height: 30px;
       }
 
       &.--categoria {
@@ -54,7 +54,7 @@ $bannerTxtColor: $blackTwo;
       }
 
       &.--titulo {
-        font-size: 35px;
+        font-size: 25px;
         letter-spacing: 5px;
       }
     }

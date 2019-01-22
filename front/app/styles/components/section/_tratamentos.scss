@@ -1,15 +1,13 @@
 #tratamentos {
-    background: url('/images/bg-tratamentos.png') center center no-repeat;
+    background: url('/images/bg-tratamentos.png') center center repeat;
     padding: 33px 0 28px;
-    height: 615px;
+    min-height: 615px;
     color: $white;
 
     .lista-tratamentos {
-        justify-content: space-between;
-        display: flex;
-
         &--item {
-            width: percentage(355px/1110px);
+            max-width: 355px;
+            margin: 0 auto 60px;
         }
 
         .card {
@@ -71,6 +69,17 @@
             font-weight: 300;
             padding: 10px 0;
             font-size: 20px;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .lista-tratamentos {
+            justify-content: space-between;
+            display: flex;
+            
+            &--item {
+                width: percentage(355px/1110px);
+            }
         }
     }
 }

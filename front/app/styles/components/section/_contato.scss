@@ -12,19 +12,23 @@
 
         .wrap {
             border: solid 1px $blackTwo;
+            margin: 0 auto 30px;
             position: relative;
             padding: 23px 25px;
-            height: 504px;
-            width: 504px;
+            max-width: 504px;
+            width: 100%;
         }
 
-        &.--instagram {
+        @include media-breakpoint-up(lg) {
             .wrap {
-                float: right;
+                height: 504px;
             }
-        }
 
-        &.--facebook {
+            &.--instagram {
+                .wrap {
+                    float: right;
+                }
+            }
         }
     }
 

@@ -64,6 +64,11 @@
         .image {
             max-width: 314px;
             margin: 0 auto 50px;
+
+            &:before {
+                left: -13px;
+                top: -13px;
+            }
         }
 
         .text {
