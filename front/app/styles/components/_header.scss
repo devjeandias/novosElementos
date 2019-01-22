@@ -4,20 +4,16 @@ $facebook: #415998;
 $instagran: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 
 #header {
-  position: absolute;
-  padding-top: 55px;
   width: 100%;
-  z-index: 10;
-  left: 0;
-  top: 0;
 
   // logo marca
   .logo-brand {
     background: url('/images/logo.svg');
+    background-size: 100%;
     text-indent: -99999em;
     display: block;
-    width: 322px;
-    height: 85px;
+    height: 50px;
+    width: 190px;
   }
 
   // menu
@@ -25,12 +21,6 @@ $instagran: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366
     &bar {
       justify-content: space-between;
       align-items: center;
-      padding: {
-        right: 60px;
-        left: 0;
-        left: 0;
-        top: 0;
-      };
       
       &-brand {
         margin-bottom: 0;
@@ -40,18 +30,15 @@ $instagran: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366
       &-nav {
         align-items: center;
       }
+
+      &-collapse {
+        justify-content: flex-end;
+      }
     }
 
     &-item {
       font-size: 14px;
       text-transform: uppercase;
-
-      + .nav-item:not(.--media) {
-        .nav-link {
-          display: block;
-          border-left: solid 1px $colorBorderNavItem;
-        }
-      }
 
       &.--media {
         position: relative;
@@ -120,6 +107,75 @@ $instagran: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366
         position: relative;
         text-indent: -99999em;
       }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    padding: 55px 0 0;
+    z-index: 10;
+    left: 0;
+    top: 0;
+
+    .logo-brand {
+      width: 322px;
+      height: 85px;
+    }
+
+    .nav {
+      &bar {
+        padding: {
+          right: 60px;
+          left: 0;
+          left: 0;
+          top: 0;
+        };        
+      }
+
+      &-item {
+        + .nav-item:not(.--media) {
+          .nav-link {
+            display: block;
+            border-left: solid 1px $colorBorderNavItem;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .nav {
+      &bar {
+        &-nav {
+          flex-wrap: wrap; 
+          margin-top: 20px;
+          align-items: flex-start;
+          flex-direction: initial;
+          border-top: solid 1px $colorBorderNavItem;
+        }
+      }
+
+      &-item {
+        &:not(.--media) {
+          width: 100%;
+          font-size: 16px;
+          border-bottom: solid 1px $colorBorderNavItem;
+
+          a {
+            padding: {
+              right: 5px;
+              left: 5px;
+            }
+          }
+        }
+
+        &.--media {
+          margin-left: 0;
+          margin-top: 25px;
+          margin-right: 20px;
+        }
+      }
+
     }
   }
 }
