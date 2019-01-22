@@ -7,8 +7,6 @@
 
     .wrap  {
         width: 100%;
-        display: flex;
-        align-items: center;
     }
 
     .image {
@@ -31,7 +29,6 @@
     }
 
     .text {
-        padding-left: 60px;
         .titulo {
             letter-spacing: 4px;
             margin-bottom: 50px;
@@ -45,6 +42,38 @@
             font-weight: 300;
             font-size: 16px;
             color: $blueTwo;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .image {
+        }
+
+        .text {
+            padding-left: 60px;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+
+        .image {
+            max-width: 314px;
+            margin: 0 auto 50px;
+        }
+
+        .text {
+            .titulo {
+                margin-bottom: 30px;
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
         }
     }
 }
