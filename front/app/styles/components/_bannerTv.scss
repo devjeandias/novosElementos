@@ -21,19 +21,42 @@ $bannerTxtColor: $blackTwo;
       margin: 0;
       display: block;
       font-weight: 300;
-      line-height: 70px;
       color: $bannerTxtColor;
       text-transform: uppercase;
     }
+    
+    @include media-breakpoint-up(md) {
+      &.--titulo,
+      &.--categoria {
+        line-height: 60px;
+      }
 
-    &.--categoria {
-      font-size: 20px;
-      letter-spacing: 3px;
+      &.--categoria {
+        font-size: 20px;
+        letter-spacing: 3px;
+      }
+
+      &.--titulo {
+        font-size: 48px;
+        letter-spacing: 7px;
+      }
     }
 
-    &.--titulo {
-      font-size: 48px;
-      letter-spacing: 7px;
+    @include media-breakpoint-down(md) {
+      &.--titulo,
+      &.--categoria {
+        line-height: 40px;
+      }
+
+      &.--categoria {
+        font-size: 15px;
+        letter-spacing: 2px;
+      }
+
+      &.--titulo {
+        font-size: 35px;
+        letter-spacing: 5px;
+      }
     }
   }
 }
